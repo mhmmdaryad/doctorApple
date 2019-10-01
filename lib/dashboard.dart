@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'camera.dart';
+import 'main.dart';
 
 class MyStatefulWidget extends StatefulWidget {
   @override
@@ -12,7 +13,6 @@ class _State extends State<MyStatefulWidget>
     with SingleTickerProviderStateMixin {
   int _selectedIndex = 1;
   static TabController _tabController;
-
   static FocusNode _focusNode;
 
   @override
@@ -125,8 +125,11 @@ class _State extends State<MyStatefulWidget>
             height: 150,
           ),
           Container(
+//            color: Colors.blueAccent,
             padding: EdgeInsets.only(top: 130),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.only(left: 40, right: 40),
@@ -150,105 +153,176 @@ class _State extends State<MyStatefulWidget>
                     ),
                   ),
                 ),
-//                Container(
-//                  padding: EdgeInsets.only(top: 15),
-//                  height: 40,
-//                  child: Row(
-//                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                    children: <Widget>[
-//                      FlatButton(
-//                        child: Text("Penyakit", style: _tabText()),
+                Expanded(
+                    child: Container(
+                  child: Column(children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.only(top: 15, left: 25, right: 25),
+                      child: TabBar(
+                        controller: _tabController,
+                        indicatorColor: Colors.green,
+                        tabs: <Widget>[
+                          Container(
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "Penyakit",
+                              style: _tabText(),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "Hama",
+                              style: _tabText(),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: TabBarView(controller: _tabController, children: <Widget>[
+                          Container(
+                            child: ListView(
+                              children: <Widget>[
+                                Card(
+                                  child: ListTile(
+                                    leading: FlutterLogo(size: 60.0),
+                                    title: Text('Title'),
+                                    subtitle: Text('Sub-title'),
+                                    isThreeLine: true,
+                                  ),
+                                ),
+                                Card(
+                                  child: ListTile(
+                                    leading: FlutterLogo(size: 60.0),
+                                    title: Text('Title'),
+                                    subtitle: Text('Sub-title'),
+                                    isThreeLine: true,
+                                  ),
+                                ),
+                                Card(
+                                  child: ListTile(
+                                    leading: FlutterLogo(size: 60.0),
+                                    title: Text('Title'),
+                                    subtitle: Text('Sub-title'),
+                                    isThreeLine: true,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ListView(
+                            children: <Widget>[
+                              Card(
+                                child: ListTile(
+                                  leading: FlutterLogo(size: 60.0),
+                                  title: Text('Title'),
+                                  subtitle: Text('Sub-title'),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: FlutterLogo(size: 60.0),
+                                  title: Text('Title'),
+                                  subtitle: Text('Sub-title'),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ]),
+                      ),
+                    )
+                  ]),
+                )),
+//                Column(
+//                  mainAxisSize: MainAxisSize.min,
+//                  children: <Widget>[
+//                    Container(
+//                      padding: EdgeInsets.only(top: 15, left: 25, right: 25),
+//                      child: TabBar(
+//                        controller: _tabController,
+//                        indicatorColor: Colors.green,
+//                        tabs: <Widget>[
+//                          Container(
+//                            padding: EdgeInsets.only(bottom: 10),
+//                            child: Text(
+//                              "Penyakit",
+//                              style: _tabText(),
+//                            ),
+//                          ),
+//                          Container(
+//                            padding: EdgeInsets.only(bottom: 10),
+//                            child: Text(
+//                              "Hama",
+//                              style: _tabText(),
+//                            ),
+//                          ),
+//                        ],
 //                      ),
-//                      FlatButton(
-//                        child: Text("Hama", style: _tabText()),
+//                    ),
+//                    Expanded(
+//                      child: TabBarView(
+//                        controller: _tabController,
+//                        children: <Widget>[
+//                          Container(
+//                            child: ListView(
+//                              children: <Widget>[
+//                                Card(
+//                                  child: ListTile(
+//                                    leading: FlutterLogo(size: 60.0),
+//                                    title: Text('Title'),
+//                                    subtitle: Text('Sub-title'),
+//                                    isThreeLine: true,
+//                                  ),
+//                                ),
+//                                Card(
+//                                  child: ListTile(
+//                                    leading: FlutterLogo(size: 60.0),
+//                                    title: Text('Title'),
+//                                    subtitle: Text('Sub-title'),
+//                                    isThreeLine: true,
+//                                  ),
+//                                ),
+//                                Card(
+//                                  child: ListTile(
+//                                    leading: FlutterLogo(size: 60.0),
+//                                    title: Text('Title'),
+//                                    subtitle: Text('Sub-title'),
+//                                    isThreeLine: true,
+//                                  ),
+//                                ),
+//                              ],
+//                            ),
+//                          ),
+//                          ListView(
+//                            children: <Widget>[
+//                              Card(
+//                                child: ListTile(
+//                                  leading: FlutterLogo(size: 60.0),
+//                                  title: Text('Title'),
+//                                  subtitle: Text('Sub-title'),
+//                                  isThreeLine: true,
+//                                ),
+//                              ),
+//                              Card(
+//                                child: ListTile(
+//                                  leading: FlutterLogo(size: 60.0),
+//                                  title: Text('Title'),
+//                                  subtitle: Text('Sub-title'),
+//                                  isThreeLine: true,
+//                                ),
+//                              ),
+//                            ],
+//                          ),
+//                        ],
 //                      ),
-//                    ],
-//                  ),
-//                )
-                Container(
-                  padding: EdgeInsets.only(top: 15, left: 25, right: 25),
-                  child: TabBar(
-                    controller: _tabController,
-                    indicatorColor: Colors.green,
-                    tabs: <Widget>[
-                      Container(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child: Text(
-                          "Penyakit",
-                          style: _tabText(),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child: Text(
-                          "Hama",
-                          style: _tabText(),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 15),
-                  height: 450,
-                  child: TabBarView(
-                    controller: _tabController,
-                    children: <Widget>[
-                      Container(
-                        child: ListView(
-                          children: <Widget>[
-                            Card(
-                              child: ListTile(
-                                leading: FlutterLogo(size: 60.0),
-                                title: Text('Title'),
-                                subtitle: Text('Sub-title'),
-                                isThreeLine: true,
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: FlutterLogo(size: 60.0),
-                                title: Text('Title'),
-                                subtitle: Text('Sub-title'),
-                                isThreeLine: true,
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: FlutterLogo(size: 60.0),
-                                title: Text('Title'),
-                                subtitle: Text('Sub-title'),
-                                isThreeLine: true,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: ListView(
-                          children: <Widget>[
-                            Card(
-                              child: ListTile(
-                                leading: FlutterLogo(size: 60.0),
-                                title: Text('Title'),
-                                subtitle: Text('Sub-title'),
-                                isThreeLine: true,
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: FlutterLogo(size: 60.0),
-                                title: Text('Title'),
-                                subtitle: Text('Sub-title'),
-                                isThreeLine: true,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+//                    ),
+////
+//                  ],
+//                ),
               ],
             ),
           ),
