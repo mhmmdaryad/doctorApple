@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'camera.dart';
@@ -7,9 +8,27 @@ class MyStatefulWidget extends StatefulWidget {
   _State createState() => _State();
 }
 
-class _State extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-  static TabController _controller;
+class _State extends State<MyStatefulWidget>
+    with SingleTickerProviderStateMixin {
+  int _selectedIndex = 1;
+  static TabController _tabController;
+
+  static FocusNode _focusNode;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _focusNode = FocusNode();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _focusNode.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,18 +112,17 @@ class _State extends State<MyStatefulWidget> {
   }
 
   static Widget _penyakitSolusi() {
+    _focusNode = FocusNode();
+
     return Container(
       child: Stack(
         children: <Widget>[
           Container(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 22.0),
-                child: new Image.asset('assets/icon/header2.png'),
-              ),
-            ),
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/icon/header2.png'),
+                    fit: BoxFit.fill)),
             height: 150,
-            color: Colors.white,
           ),
           Container(
             padding: EdgeInsets.only(top: 130),
@@ -113,6 +131,10 @@ class _State extends State<MyStatefulWidget> {
                 Container(
                   padding: EdgeInsets.only(left: 40, right: 40),
                   child: TextField(
+                    focusNode: _focusNode,
+                    onEditingComplete: () {
+                      _focusNode.unfocus();
+                    },
                     decoration: InputDecoration(
                       hintText: 'Cari Gejala',
                       contentPadding: EdgeInsets.only(
@@ -128,42 +150,100 @@ class _State extends State<MyStatefulWidget> {
                     ),
                   ),
                 ),
+//                Container(
+//                  padding: EdgeInsets.only(top: 15),
+//                  height: 40,
+//                  child: Row(
+//                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                    children: <Widget>[
+//                      FlatButton(
+//                        child: Text("Penyakit", style: _tabText()),
+//                      ),
+//                      FlatButton(
+//                        child: Text("Hama", style: _tabText()),
+//                      ),
+//                    ],
+//                  ),
+//                )
                 Container(
-                  decoration: new BoxDecoration(color: Colors.black),
-                  child: new TabBar(
-                    controller: _controller,
-                    tabs: [
-                      new Tab(
-                        text: 'Penyakit',
+                  padding: EdgeInsets.only(top: 15, left: 25, right: 25),
+                  child: TabBar(
+                    controller: _tabController,
+                    indicatorColor: Colors.green,
+                    tabs: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          "Penyakit",
+                          style: _tabText(),
+                        ),
                       ),
-                      new Tab(
-                        text: 'Hama',
+                      Container(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          "Hama",
+                          style: _tabText(),
+                        ),
                       ),
                     ],
                   ),
                 ),
-                new Container(
-                  height: 80.0,
-                  child: new TabBarView(
-                    controller: _controller,
+                Container(
+                  padding: EdgeInsets.only(top: 15),
+                  height: 450,
+                  child: TabBarView(
+                    controller: _tabController,
                     children: <Widget>[
-                      new Card(
-                        child: new ListTile(
-                          leading: const Icon(Icons.home),
-                          title: new TextField(
-                            decoration: const InputDecoration(
-                                hintText: 'Search for address...'),
-                          ),
+                      Container(
+                        child: ListView(
+                          children: <Widget>[
+                            Card(
+                              child: ListTile(
+                                leading: FlutterLogo(size: 60.0),
+                                title: Text('Title'),
+                                subtitle: Text('Sub-title'),
+                                isThreeLine: true,
+                              ),
+                            ),
+                            Card(
+                              child: ListTile(
+                                leading: FlutterLogo(size: 60.0),
+                                title: Text('Title'),
+                                subtitle: Text('Sub-title'),
+                                isThreeLine: true,
+                              ),
+                            ),
+                            Card(
+                              child: ListTile(
+                                leading: FlutterLogo(size: 60.0),
+                                title: Text('Title'),
+                                subtitle: Text('Sub-title'),
+                                isThreeLine: true,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      new Card(
-                        child: new ListTile(
-                          leading: const Icon(Icons.location_on),
-                          title: new Text(
-                              'Latitude: 48.09342\nLongitude: 11.23403'),
-                          trailing: new IconButton(
-                              icon: const Icon(Icons.my_location),
-                              onPressed: () {}),
+                      Container(
+                        child: ListView(
+                          children: <Widget>[
+                            Card(
+                              child: ListTile(
+                                leading: FlutterLogo(size: 60.0),
+                                title: Text('Title'),
+                                subtitle: Text('Sub-title'),
+                                isThreeLine: true,
+                              ),
+                            ),
+                            Card(
+                              child: ListTile(
+                                leading: FlutterLogo(size: 60.0),
+                                title: Text('Title'),
+                                subtitle: Text('Sub-title'),
+                                isThreeLine: true,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -210,6 +290,10 @@ class _State extends State<MyStatefulWidget> {
         ],
       ),
     );
+  }
+
+  static TextStyle _tabText() {
+    return TextStyle(fontSize: 16, color: Colors.black);
   }
 }
 
