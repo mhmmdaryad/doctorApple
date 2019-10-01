@@ -109,7 +109,7 @@ class _State extends State<MyStatefulWidget>
           ),
           Container(
             padding: EdgeInsets.only(top: 430),
-            child: (
+            child: Column(
               children: <Widget>[
                 Card(
                   child: Column(
