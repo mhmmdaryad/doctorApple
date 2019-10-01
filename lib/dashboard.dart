@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'camera.dart';
-import 'main.dart';
+import 'phDetails.dart';
 
 class MyStatefulWidget extends StatefulWidget {
   @override
@@ -14,6 +14,7 @@ class _State extends State<MyStatefulWidget>
   int _selectedIndex = 1;
   static TabController _tabController;
   static FocusNode _focusNode;
+  List<Widget> _widgetOption;
 
   @override
   void initState() {
@@ -21,6 +22,8 @@ class _State extends State<MyStatefulWidget>
     super.initState();
     _focusNode = FocusNode();
     _tabController = TabController(length: 2, vsync: this);
+
+    _widgetOption = <Widget>[_beranda(), _penyakitSolusi(), _tentangApel()];
   }
 
   @override
@@ -71,13 +74,7 @@ class _State extends State<MyStatefulWidget>
     );
   }
 
-  static List<Widget> _widgetOption = <Widget>[
-    _beranda(),
-    _penyakitSolusi(),
-    _tentangApel()
-  ];
-
-  static Widget _beranda() {
+  Widget _beranda() {
     return Container(
         child: Stack(
       children: <Widget>[
@@ -111,7 +108,7 @@ class _State extends State<MyStatefulWidget>
     ));
   }
 
-  static Widget _penyakitSolusi() {
+  Widget _penyakitSolusi() {
     _focusNode = FocusNode();
 
     return Container(
@@ -181,28 +178,26 @@ class _State extends State<MyStatefulWidget>
                     ),
                     Expanded(
                       child: Container(
-                        child: TabBarView(controller: _tabController, children: <Widget>[
+                        child:
+                            TabBarView(controller: _tabController, children: <
+                                Widget>[
                           Container(
                             child: ListView(
                               children: <Widget>[
                                 Card(
                                   child: ListTile(
-                                    leading: FlutterLogo(size: 60.0),
-                                    title: Text('Title'),
-                                    subtitle: Text('Sub-title'),
-                                    isThreeLine: true,
-                                  ),
-                                ),
-                                Card(
-                                  child: ListTile(
-                                    leading: FlutterLogo(size: 60.0),
-                                    title: Text('Title'),
-                                    subtitle: Text('Sub-title'),
-                                    isThreeLine: true,
-                                  ),
-                                ),
-                                Card(
-                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => phDetails(
+                                                    title: "ABCDE",
+                                                    description:
+                                                        "AWJDWHDKADWHK",
+                                                    image: AssetImage(
+                                                        "assets/icon/buahApel.png"),
+                                                  )));
+                                    },
                                     leading: FlutterLogo(size: 60.0),
                                     title: Text('Title'),
                                     subtitle: Text('Sub-title'),
@@ -213,116 +208,13 @@ class _State extends State<MyStatefulWidget>
                             ),
                           ),
                           ListView(
-                            children: <Widget>[
-                              Card(
-                                child: ListTile(
-                                  leading: FlutterLogo(size: 60.0),
-                                  title: Text('Title'),
-                                  subtitle: Text('Sub-title'),
-                                  isThreeLine: true,
-                                ),
-                              ),
-                              Card(
-                                child: ListTile(
-                                  leading: FlutterLogo(size: 60.0),
-                                  title: Text('Title'),
-                                  subtitle: Text('Sub-title'),
-                                  isThreeLine: true,
-                                ),
-                              ),
-                            ],
+                            children: <Widget>[],
                           ),
                         ]),
                       ),
                     )
                   ]),
                 )),
-//                Column(
-//                  mainAxisSize: MainAxisSize.min,
-//                  children: <Widget>[
-//                    Container(
-//                      padding: EdgeInsets.only(top: 15, left: 25, right: 25),
-//                      child: TabBar(
-//                        controller: _tabController,
-//                        indicatorColor: Colors.green,
-//                        tabs: <Widget>[
-//                          Container(
-//                            padding: EdgeInsets.only(bottom: 10),
-//                            child: Text(
-//                              "Penyakit",
-//                              style: _tabText(),
-//                            ),
-//                          ),
-//                          Container(
-//                            padding: EdgeInsets.only(bottom: 10),
-//                            child: Text(
-//                              "Hama",
-//                              style: _tabText(),
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                    ),
-//                    Expanded(
-//                      child: TabBarView(
-//                        controller: _tabController,
-//                        children: <Widget>[
-//                          Container(
-//                            child: ListView(
-//                              children: <Widget>[
-//                                Card(
-//                                  child: ListTile(
-//                                    leading: FlutterLogo(size: 60.0),
-//                                    title: Text('Title'),
-//                                    subtitle: Text('Sub-title'),
-//                                    isThreeLine: true,
-//                                  ),
-//                                ),
-//                                Card(
-//                                  child: ListTile(
-//                                    leading: FlutterLogo(size: 60.0),
-//                                    title: Text('Title'),
-//                                    subtitle: Text('Sub-title'),
-//                                    isThreeLine: true,
-//                                  ),
-//                                ),
-//                                Card(
-//                                  child: ListTile(
-//                                    leading: FlutterLogo(size: 60.0),
-//                                    title: Text('Title'),
-//                                    subtitle: Text('Sub-title'),
-//                                    isThreeLine: true,
-//                                  ),
-//                                ),
-//                              ],
-//                            ),
-//                          ),
-//                          ListView(
-//                            children: <Widget>[
-//                              Card(
-//                                child: ListTile(
-//                                  leading: FlutterLogo(size: 60.0),
-//                                  title: Text('Title'),
-//                                  subtitle: Text('Sub-title'),
-//                                  isThreeLine: true,
-//                                ),
-//                              ),
-//                              Card(
-//                                child: ListTile(
-//                                  leading: FlutterLogo(size: 60.0),
-//                                  title: Text('Title'),
-//                                  subtitle: Text('Sub-title'),
-//                                  isThreeLine: true,
-//                                ),
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                    ),
-////
-//                  ],
-//                ),
               ],
             ),
           ),
@@ -331,7 +223,7 @@ class _State extends State<MyStatefulWidget>
     );
   }
 
-  static Widget _tentangApel() {
+  Widget _tentangApel() {
     return Container(
       child: ListView(
         children: <Widget>[
@@ -368,41 +260,5 @@ class _State extends State<MyStatefulWidget>
 
   static TextStyle _tabText() {
     return TextStyle(fontSize: 16, color: Colors.black);
-  }
-}
-
-class Choice {
-  const Choice({this.title, this.icon});
-
-  final String title;
-  final IconData icon;
-}
-
-const List<Choice> choices = const <Choice>[
-  const Choice(title: 'CAR', icon: Icons.directions_car),
-  const Choice(title: 'BICYCLE', icon: Icons.directions_bike),
-];
-
-class ChoiceCard extends StatelessWidget {
-  const ChoiceCard({Key key, this.choice}) : super(key: key);
-
-  final Choice choice;
-
-  @override
-  Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
-    return Card(
-      color: Colors.white,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(choice.icon, size: 128.0, color: textStyle.color),
-            Text(choice.title, style: textStyle),
-          ],
-        ),
-      ),
-    );
   }
 }
