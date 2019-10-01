@@ -46,6 +46,8 @@ flutter:
   assets:
    - assets/icon/sol.svg
    - assets/icon/header2.png
+   - assets/icon/back.png
+   - assets/icon/buahApel.png
 
   fonts:
    - family:  MyFlutterApp

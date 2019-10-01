@@ -18,7 +18,7 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _State extends State<MyStatefulWidget> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 0;
   static TabController _controller;
 
 //  void initState() {
@@ -28,37 +28,36 @@ class _State extends State<MyStatefulWidget> {
 
   static List<Widget> _widgetOption = <Widget>[
     Container(
-        padding: EdgeInsets.only(top: 25),
-        child: ListView(
-          children: <Widget>[
-            Card(
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  print('Card tapped.');
-                },
-                child: Container(
-                  width: 300,
-                  height: 100,
-                  child: Text(''),
-                ),
+        child: Stack(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(top: 22.0),
+          child: new Image.asset('assets/icon/back.png'),
+          height: 800,
+          width: 600,
+          color: Colors.white,
+        ),
+        Container(
+          child: Padding(
+            padding: EdgeInsets.only(top: 120, left: 130),
+            child: new Image.asset('assets/icon/buahApel.png'),
+          ),
+        ),
+        Container(
+          child: Padding(
+            padding: EdgeInsets.only(top: 40,left: 20),
+            child: Text(
+              'DOCTOR\nAPPLE',
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
-            Card(
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  print('Card tapped.');
-                },
-                child: Container(
-                  width: 300,
-                  height: 100,
-                  child: Text(''),
-                ),
-              ),
-            ),
-          ],
-        )),
+          ),
+        ),
+      ],
+    )),
     Container(
       child: Stack(
         children: <Widget>[
@@ -148,15 +147,23 @@ class _State extends State<MyStatefulWidget> {
             child: Column(
               children: <Widget>[
                 Container(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 200.0, top: 20.0),
-                    child: Text(
-                      'Tentang\nApel',
-                      style: TextStyle(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.only(left: 20, top: 20.0),
+                        child: Text(
+                          'Tentang\nApel',
+                          style: TextStyle(
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
+                      Container(
+                        padding: EdgeInsets.only(right: 0),
+                        child: Text('tes'),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -207,7 +214,6 @@ class _State extends State<MyStatefulWidget> {
       ),
     );
   }
-
 }
 
 List<CameraDescription> cameras;
