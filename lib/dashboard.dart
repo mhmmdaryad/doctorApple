@@ -11,7 +11,7 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _State extends State<MyStatefulWidget>
     with SingleTickerProviderStateMixin {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   static TabController _tabController;
   static FocusNode _focusNode;
 
@@ -79,36 +79,70 @@ class _State extends State<MyStatefulWidget>
 
   static Widget _beranda() {
     return Container(
-        child: Stack(
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.only(top: 22.0),
-          child: new Image.asset('assets/icon/back.png'),
-          height: 800,
-          width: 600,
-          color: Colors.white,
-        ),
-        Container(
-          child: Padding(
-            padding: EdgeInsets.only(top: 120, left: 130),
-            child: new Image.asset('assets/icon/buahApel.png'),
+      child: Stack(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(top: 22.0),
+            child: new Image.asset('assets/icon/back.png'),
+            height: 800,
+            width: 600,
+            color: Colors.white,
           ),
-        ),
-        Container(
-          child: Padding(
-            padding: EdgeInsets.only(top: 40, left: 20),
-            child: Text(
-              'DOCTOR\nAPPLE',
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+          Container(
+            child: Padding(
+              padding: EdgeInsets.only(top: 130, left: 130),
+              child: new Image.asset('assets/icon/buahApel.png'),
+            ),
+          ),
+          Container(
+            child: Padding(
+              padding: EdgeInsets.only(top: 40, left: 20),
+              child: Text(
+                'DOCTOR\nAPPLE',
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
-        ),
-      ],
-    ));
+          Container(
+            padding: EdgeInsets.only(top: 430),
+            child: (
+              children: <Widget>[
+                Card(
+                  child: Column(
+                   // mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        leading: Icon(Icons.monetization_on),
+                        title: Text('Hitung Pupuk'),
+                        subtitle: Text(
+                            'Untuk meningkatkan Efisiensi dan menghemat biaya'),
+                      ),
+                      ButtonTheme.bar(
+                        // make buttons use the appropriate styles for cards
+                        child: ButtonBar(
+                          children: <Widget>[
+                            FlatButton(
+                              child: const Text('HITUNG'),
+                              onPressed: () {
+                                /* ... */
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   static Widget _penyakitSolusi() {
@@ -181,58 +215,92 @@ class _State extends State<MyStatefulWidget>
                     ),
                     Expanded(
                       child: Container(
-                        child: TabBarView(controller: _tabController, children: <Widget>[
-                          Container(
-                            child: ListView(
-                              children: <Widget>[
-                                Card(
-                                  child: ListTile(
-                                    leading: FlutterLogo(size: 60.0),
-                                    title: Text('Title'),
-                                    subtitle: Text('Sub-title'),
-                                    isThreeLine: true,
-                                  ),
-                                ),
-                                Card(
-                                  child: ListTile(
-                                    leading: FlutterLogo(size: 60.0),
-                                    title: Text('Title'),
-                                    subtitle: Text('Sub-title'),
-                                    isThreeLine: true,
-                                  ),
-                                ),
-                                Card(
-                                  child: ListTile(
-                                    leading: FlutterLogo(size: 60.0),
-                                    title: Text('Title'),
-                                    subtitle: Text('Sub-title'),
-                                    isThreeLine: true,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          ListView(
+                        child: TabBarView(
+                            controller: _tabController,
                             children: <Widget>[
-                              Card(
-                                child: ListTile(
-                                  leading: FlutterLogo(size: 60.0),
-                                  title: Text('Title'),
-                                  subtitle: Text('Sub-title'),
-                                  isThreeLine: true,
+                              Container(
+                                child: ListView(
+                                  children: <Widget>[
+                                    Card(
+                                      child: ListTile(
+                                        leading: FlutterLogo(size: 60.0),
+                                        title: Text('Title'),
+                                        subtitle: Text('Sub-title'),
+                                        isThreeLine: true,
+                                      ),
+                                    ),
+                                    Card(
+                                      child: ListTile(
+                                        leading: FlutterLogo(size: 60.0),
+                                        title: Text('Title'),
+                                        subtitle: Text('Sub-title'),
+                                        isThreeLine: true,
+                                      ),
+                                    ),
+                                    Card(
+                                      child: ListTile(
+                                        leading: FlutterLogo(size: 60.0),
+                                        title: Text('Title'),
+                                        subtitle: Text('Sub-title'),
+                                        isThreeLine: true,
+                                      ),
+                                    ),
+                                    Card(
+                                      child: ListTile(
+                                        leading: FlutterLogo(size: 60.0),
+                                        title: Text('Title'),
+                                        subtitle: Text('Sub-title'),
+                                        isThreeLine: true,
+                                      ),
+                                    ),
+                                    Card(
+                                      child: ListTile(
+                                        leading: FlutterLogo(size: 60.0),
+                                        title: Text('Title'),
+                                        subtitle: Text('Sub-title'),
+                                        isThreeLine: true,
+                                      ),
+                                    ),
+                                    Card(
+                                      child: ListTile(
+                                        leading: FlutterLogo(size: 60.0),
+                                        title: Text('Title'),
+                                        subtitle: Text('Sub-title'),
+                                        isThreeLine: true,
+                                      ),
+                                    ),
+                                    Card(
+                                      child: ListTile(
+                                        leading: FlutterLogo(size: 60.0),
+                                        title: Text('Title'),
+                                        subtitle: Text('Sub-title'),
+                                        isThreeLine: true,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Card(
-                                child: ListTile(
-                                  leading: FlutterLogo(size: 60.0),
-                                  title: Text('Title'),
-                                  subtitle: Text('Sub-title'),
-                                  isThreeLine: true,
-                                ),
+                              ListView(
+                                children: <Widget>[
+                                  Card(
+                                    child: ListTile(
+                                      leading: FlutterLogo(size: 60.0),
+                                      title: Text('Title'),
+                                      subtitle: Text('Sub-title'),
+                                      isThreeLine: true,
+                                    ),
+                                  ),
+                                  Card(
+                                    child: ListTile(
+                                      leading: FlutterLogo(size: 60.0),
+                                      title: Text('Title'),
+                                      subtitle: Text('Sub-title'),
+                                      isThreeLine: true,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        ]),
+                            ]),
                       ),
                     )
                   ]),
