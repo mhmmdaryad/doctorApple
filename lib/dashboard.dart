@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
 import 'camera.dart';
 import 'phDetails.dart';
 import 'x.dart';
@@ -23,7 +22,6 @@ class _State extends State<MyStatefulWidget>
     super.initState();
     _focusNode = FocusNode();
     _tabController = TabController(length: 2, vsync: this);
-
     _widgetOption = <Widget>[_beranda(), _penyakitSolusi(), _tentangApel()];
   }
 
@@ -60,10 +58,9 @@ class _State extends State<MyStatefulWidget>
         selectedItemColor: Color.fromARGB(255, 17, 142, 74),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          // Add your onPressed code here!
-          cameras = await availableCameras();
-          runApp(CameraApp());
+        onPressed: () {
+          main();
+//          Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
         },
         child: Icon(Icons.camera_alt),
         backgroundColor: Colors.green,
