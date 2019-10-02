@@ -44,10 +44,25 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/icon/sol.svg
-   - assets/icon/header2.png
-   - assets/icon/back.png
-   - assets/icon/buahApel.png
+   - assets/image/sol.svg
+   - assets/image/header2.png
+   - assets/image/back.png
+   - assets/image/buahApel.png
+   - assets/image/embuntep.jpg
+   - assets/icon/Hscab.png
+   - assets/icon/Hbitrot.png
+   - assets/icon/Hbusap.png
+   - assets/icon/Hcedar.png
+   - assets/icon/Hemtep.png
+   - assets/icon/apelclip.png
+   - assets/icon/hujan.png
+   - assets/icon/ketinggian.png
+   - assets/icon/matahari.png
+   - assets/icon/suhu.png
+   - assets/icon/tanah.png
+   - assets/icon/kalkulator.png
+   - assets/icon/pakar.png
+   - assets/text/embunTepung.txt
 
 #  fonts:
 #   - family:  MyFlutterApp

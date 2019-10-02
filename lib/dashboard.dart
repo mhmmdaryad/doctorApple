@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'camera.dart';
 import 'phDetails.dart';
+import 'x.dart';
 
 class MyStatefulWidget extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _State extends State<MyStatefulWidget>
     with SingleTickerProviderStateMixin {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   static TabController _tabController;
   static FocusNode _focusNode;
   List<Widget> _widgetOption;
@@ -76,36 +77,96 @@ class _State extends State<MyStatefulWidget>
 
   Widget _beranda() {
     return Container(
-        child: Stack(
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.only(top: 22.0),
-          child: new Image.asset('assets/icon/back.png'),
-          height: 800,
-          width: 600,
-          color: Colors.white,
-        ),
-        Container(
-          child: Padding(
-            padding: EdgeInsets.only(top: 120, left: 130),
-            child: new Image.asset('assets/icon/buahApel.png'),
+      child: Stack(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(top: 22.0),
+            child: new Image.asset('assets/image/back.png'),
+            height: 800,
+            width: 600,
+            color: Colors.white,
           ),
-        ),
-        Container(
-          child: Padding(
-            padding: EdgeInsets.only(top: 40, left: 20),
-            child: Text(
-              'DOCTOR\nAPPLE',
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+          Container(
+            child: Padding(
+              padding: EdgeInsets.only(top: 130, left: 130),
+              child: new Image.asset('assets/image/buahApel.png'),
+            ),
+          ),
+          Container(
+            child: Padding(
+              padding: EdgeInsets.only(top: 40, left: 20),
+              child: Text(
+                'DOCTOR\nAPPLE',
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
-        ),
-      ],
-    ));
+          Container(
+            padding: EdgeInsets.only(top: 400, left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Container(
+                  child: Card(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: 20,
+                          ),
+                          child: Image.asset('assets/icon/kalkulator.png'),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: 15,
+                          ),
+                          child: Text('Kalkulator Pupuk',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          height: 30,
+                        )
+                      ],
+                    ),
+                  ),
+                  height: 150,
+                  width: 150,
+                ),
+                Container(
+                  child: Card(
+                    child: InkWell(
+                      splashColor: Colors.blue.withAlpha(30),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.only(
+                              top: 20,
+                            ),
+                            child: Image.asset('assets/icon/pakar.png'),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(
+                              top: 15,
+                            ),
+                            child: Text('Tanya Pakar',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            height: 30,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  height: 150,
+                  width: 150,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _penyakitSolusi() {
@@ -117,7 +178,7 @@ class _State extends State<MyStatefulWidget>
           Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/icon/header2.png'),
+                    image: AssetImage('assets/image/header2.png'),
                     fit: BoxFit.fill)),
             height: 150,
           ),
@@ -191,6 +252,100 @@ class _State extends State<MyStatefulWidget>
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) => phDetails(
+                                                    title: 'Embun Tepung',
+                                                    //  subtitle: 'Podosphaera Leucoticha',
+                                                    description:
+                                                        x().tepung_string,
+                                                    image: AssetImage(
+                                                        "assets/image/embuntep.jpg"),
+                                                  )));
+                                    },
+                                    leading:
+                                        Image.asset("assets/icon/Hemtep.png"),
+                                    title: Text('Embun Tepung'),
+                                    subtitle: Text('Podosphaera Leucoticha',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic)),
+                                    isThreeLine: true,
+                                  ),
+                                ),
+                                Card(
+                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => phDetails(
+                                                    title: "ABCDE",
+                                                    description:
+                                                        "AWJDWHDKADWHK",
+                                                    image: AssetImage(
+                                                        "assets/image/buahApel.png"),
+                                                  )));
+                                    },
+                                    leading:
+                                        Image.asset("assets/icon/Hbitrot.png"),
+                                    title: Text('Bitter Rot'),
+                                    subtitle: Text('Fungus: Colletotrichum sp',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic)),
+                                    isThreeLine: true,
+                                  ),
+                                ),
+                                Card(
+                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => phDetails(
+                                                    title: "ABCDE",
+                                                    description:
+                                                        "AWJDWHDKADWHK",
+                                                    image: AssetImage(
+                                                        "assets/image/buahApel.png"),
+                                                  )));
+                                    },
+                                    leading:
+                                        Image.asset("assets/icon/Hbusap.png"),
+                                    title: Text('Busuk Api'),
+                                    subtitle: Text('Erwinia Amylovara',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic)),
+                                    isThreeLine: true,
+                                  ),
+                                ),
+                                Card(
+                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => phDetails(
+                                                    title: "ABCDE",
+                                                    description:
+                                                        "AWJDWHDKADWHK",
+                                                    image: AssetImage(
+                                                        "assets/icon/buahApel.png"),
+                                                  )));
+                                    },
+                                    leading:
+                                        Image.asset("assets/icon/Hcedar.png"),
+                                    title: Text('Karat Apel'),
+                                    subtitle: Text(
+                                        'Gymnosporangium juniperivirginianae',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic)),
+                                    isThreeLine: true,
+                                  ),
+                                ),
+                                Card(
+                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => phDetails(
                                                     title: "ABCDE",
                                                     description:
                                                         "AWJDWHDKADWHK",
@@ -199,8 +354,35 @@ class _State extends State<MyStatefulWidget>
                                                   )));
                                     },
                                     leading: FlutterLogo(size: 60.0),
-                                    title: Text('Title'),
-                                    subtitle: Text('Sub-title'),
+                                    title: Text('Black rot'),
+                                    subtitle: Text(
+                                        'Fungus: Botryosphaeriaobtusa',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic)),
+                                    isThreeLine: true,
+                                  ),
+                                ),
+                                Card(
+                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => phDetails(
+                                                    title: "ABCDE",
+                                                    description:
+                                                        "AWJDWHDKADWHK",
+                                                    image: AssetImage(
+                                                        "assets/icon/buahApel.png"),
+                                                  )));
+                                    },
+                                    leading:
+                                        Image.asset("assets/icon/Hscab.png"),
+                                    title: Text('Keropeng Apel'),
+                                    subtitle: Text(
+                                        'Fungus: Venturia inaequalis',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic)),
                                     isThreeLine: true,
                                   ),
                                 ),
@@ -208,7 +390,103 @@ class _State extends State<MyStatefulWidget>
                             ),
                           ),
                           ListView(
-                            children: <Widget>[],
+                            children: <Widget>[
+                              Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => phDetails(
+                                                  title: "ABCDE",
+                                                  description: "AWJDWHDKADWHK",
+                                                  image: AssetImage(
+                                                      "assets/icon/buahApel.png"),
+                                                )));
+                                  },
+                                  leading: FlutterLogo(size: 60.0),
+                                  title: Text('Kutu Daun Hijau'),
+                                  subtitle: Text('Sub-title'),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => phDetails(
+                                                  title: "ABCDE",
+                                                  description: "AWJDWHDKADWHK",
+                                                  image: AssetImage(
+                                                      "assets/icon/buahApel.png"),
+                                                )));
+                                  },
+                                  leading: FlutterLogo(size: 60.0),
+                                  title: Text('Tungau/Spider Mite/Cabuk Merah'),
+                                  subtitle: Text('Sub-title'),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => phDetails(
+                                                  title: "ABCDE",
+                                                  description: "AWJDWHDKADWHK",
+                                                  image: AssetImage(
+                                                      "assets/icon/buahApel.png"),
+                                                )));
+                                  },
+                                  leading: FlutterLogo(size: 60.0),
+                                  title: Text('Ulat Daun'),
+                                  subtitle: Text('Sub-title'),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => phDetails(
+                                                  title: "ABCDE",
+                                                  description: "AWJDWHDKADWHK",
+                                                  image: AssetImage(
+                                                      "assets/icon/buahApel.png"),
+                                                )));
+                                  },
+                                  leading: FlutterLogo(size: 60.0),
+                                  title: Text('Serangga Penghisap Daun'),
+                                  subtitle: Text('Sub-title'),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => phDetails(
+                                                  title: "ABCDE",
+                                                  description: "AWJDWHDKADWHK",
+                                                  image: AssetImage(
+                                                      "assets/icon/buahApel.png"),
+                                                )));
+                                  },
+                                  leading: FlutterLogo(size: 60.0),
+                                  title: Text('Lalat Buah'),
+                                  subtitle: Text('Sub-title'),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                            ],
                           ),
                         ]),
                       ),
@@ -234,7 +512,9 @@ class _State extends State<MyStatefulWidget>
                   child: Row(
                     children: <Widget>[
                       Container(
-                        padding: const EdgeInsets.only(left: 20, top: 20.0),
+                        padding: const EdgeInsets.only(
+                          left: 20,
+                        ),
                         child: Text(
                           'Tentang\nApel',
                           style: TextStyle(
@@ -243,9 +523,197 @@ class _State extends State<MyStatefulWidget>
                           ),
                         ),
                       ),
+                      Container(),
+                    ],
+                  ),
+                  height: 150,
+                ),
+                Container(
+                  child: Column(
+                    children: <Widget>[
                       Container(
-                        padding: EdgeInsets.only(right: 0),
-                        child: Text('tes'),
+                        child: Align(
+                          alignment: Alignment.topRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 30, top: 10),
+                            child: Image.asset("assets/icon/ketinggian.png"),
+                          ),
+                        ),
+                        height: 120,
+                      ),
+                      Container(
+                        child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 30, top: 10),
+                              child: Text(
+                                'Ketinggian',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                            )),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(left: 60, right: 20, top: 10),
+                          child: Text(
+                            x().ketinggian_string,
+                          ),
+                        ),
+                        height: 80,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: Image.asset("assets/icon/tanah.png"),
+                          ),
+                        ),
+                        height: 120,
+                      ),
+                      Container(
+                        child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 30),
+                              child: Text(
+                                'Tanah',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                            )),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(left: 20, right: 50, top: 10),
+                          child: Text(
+                            x().tanah_string,
+                          ),
+                        ),
+                        height: 80,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        child: Align(
+                          alignment: Alignment.topRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 30, top: 10),
+                            child: Image.asset("assets/icon/hujan.png"),
+                          ),
+                        ),
+                        height: 120,
+                      ),
+                      Container(
+                        child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 30, top: 10),
+                              child: Text(
+                                'Curah Hujan',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                            )),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(left: 100, right: 20, top: 10),
+                          child: Text(
+                            x().hujan_string,
+                          ),
+                        ),
+                        height: 80,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: Image.asset("assets/icon/matahari.png"),
+                          ),
+                        ),
+                        height: 120,
+                      ),
+                      Container(
+                        child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 30),
+                              child: Text(
+                                'Cahaya Matahari',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                            )),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(left: 20, right: 20, top: 10),
+                          child: Text(
+                            x().matahari_string,
+                          ),
+                        ),
+                        height: 60,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 30),
+                            child: Image.asset("assets/icon/suhu.png"),
+                          ),
+                        ),
+                        height: 120,
+                      ),
+                      Container(
+                        child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 30),
+                              child: Text(
+                                'Suhu',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                            )),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(left: 20, right: 20, top: 10),
+                          child: Text(
+                            x().suhu_string,
+                          ),
+                        ),
+                        height: 80,
                       ),
                     ],
                   ),
@@ -256,6 +724,11 @@ class _State extends State<MyStatefulWidget>
         ],
       ),
     );
+  }
+
+  Future<String> loadAsset(BuildContext context) async {
+    return await DefaultAssetBundle.of(context)
+        .loadString('assets/text/embunTepung.txt');
   }
 
   static TextStyle _tabText() {

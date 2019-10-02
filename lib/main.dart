@@ -9,6 +9,7 @@ class DoctorApple extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Doctor Apple",
         debugShowCheckedModeBanner: false, home: MyStatefulWidget());
   }
 }
