@@ -17,9 +17,9 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+
   flutter:
     sdk: flutter
-
   camera: ^0.5.4+3
 
   # The following adds the Cupertino Icons font to your application.
@@ -58,6 +58,7 @@ flutter:
    - assets/image/logoB.png
    - assets/image/caption.png
    - assets/image/pupuk.png
+   - assets/image/logo.png
    - assets/icon/Hscab.png
    - assets/icon/Hbitrot.png
    - assets/icon/Hbusap.png

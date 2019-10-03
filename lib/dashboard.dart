@@ -255,6 +255,7 @@ class _State extends State<MyStatefulWidget>
                                                     //  subtitle: 'Podosphaera Leucoticha',
                                                     description:
                                                         x().tepung_string,
+                                                    solusi: '',
                                                     image: AssetImage(
                                                         "assets/image/embuntep.jpg"),
                                                   )));
@@ -278,6 +279,7 @@ class _State extends State<MyStatefulWidget>
                                                     title: "ABCDE",
                                                     description:
                                                         "AWJDWHDKADWHK",
+                                                    solusi: '',
                                                     image: AssetImage(
                                                         "assets/image/buahApel.png"),
                                                   )));
@@ -301,6 +303,7 @@ class _State extends State<MyStatefulWidget>
                                                     title: "ABCDE",
                                                     description:
                                                         "AWJDWHDKADWHK",
+                                                    solusi: '',
                                                     image: AssetImage(
                                                         "assets/image/buahApel.png"),
                                                   )));
@@ -324,6 +327,7 @@ class _State extends State<MyStatefulWidget>
                                                     title: "ABCDE",
                                                     description:
                                                         "AWJDWHDKADWHK",
+                                                    solusi: '',
                                                     image: AssetImage(
                                                         "assets/icon/buahApel.png"),
                                                   )));
@@ -348,6 +352,7 @@ class _State extends State<MyStatefulWidget>
                                                     title: "ABCDE",
                                                     description:
                                                         "AWJDWHDKADWHK",
+                                                    solusi: '',
                                                     image: AssetImage(
                                                         "assets/icon/buahApel.png"),
                                                   )));
@@ -372,6 +377,7 @@ class _State extends State<MyStatefulWidget>
                                                     title: "ABCDE",
                                                     description:
                                                         "AWJDWHDKADWHK",
+                                                    solusi: '',
                                                     image: AssetImage(
                                                         "assets/icon/buahApel.png"),
                                                   )));
@@ -396,6 +402,7 @@ class _State extends State<MyStatefulWidget>
                                                     title: "ABCDE",
                                                     description:
                                                         "AWJDWHDKADWHK",
+                                                    solusi: '',
                                                     image: AssetImage(
                                                         "assets/icon/buahApel.png"),
                                                   )));
@@ -419,6 +426,7 @@ class _State extends State<MyStatefulWidget>
                                                     title: "ABCDE",
                                                     description:
                                                         "AWJDWHDKADWHK",
+                                                    solusi: '',
                                                     image: AssetImage(
                                                         "assets/icon/buahApel.png"),
                                                   )));
@@ -446,6 +454,7 @@ class _State extends State<MyStatefulWidget>
                                             builder: (context) => phDetails(
                                                   title: "ABCDE",
                                                   description: "AWJDWHDKADWHK",
+                                                  solusi: '',
                                                   image: AssetImage(
                                                       "assets/icon/buahApel.png"),
                                                 )));
@@ -467,6 +476,7 @@ class _State extends State<MyStatefulWidget>
                                             builder: (context) => phDetails(
                                                   title: "ABCDE",
                                                   description: "AWJDWHDKADWHK",
+                                                  solusi: '',
                                                   image: AssetImage(
                                                       "assets/icon/buahApel.png"),
                                                 )));
@@ -488,6 +498,7 @@ class _State extends State<MyStatefulWidget>
                                             builder: (context) => phDetails(
                                                   title: "ABCDE",
                                                   description: "AWJDWHDKADWHK",
+                                                  solusi: '',
                                                   image: AssetImage(
                                                       "assets/icon/buahApel.png"),
                                                 )));
@@ -508,6 +519,7 @@ class _State extends State<MyStatefulWidget>
                                             builder: (context) => phDetails(
                                                   title: "ABCDE",
                                                   description: "AWJDWHDKADWHK",
+                                                  solusi: '',
                                                   image: AssetImage(
                                                       "assets/icon/buahApel.png"),
                                                 )));
@@ -530,6 +542,7 @@ class _State extends State<MyStatefulWidget>
                                             builder: (context) => phDetails(
                                                   title: "ABCDE",
                                                   description: "AWJDWHDKADWHK",
+                                                  solusi: '',
                                                   image: AssetImage(
                                                       "assets/icon/buahApel.png"),
                                                 )));
@@ -551,6 +564,7 @@ class _State extends State<MyStatefulWidget>
                                             builder: (context) => phDetails(
                                                   title: "ABCDE",
                                                   description: "AWJDWHDKADWHK",
+                                                  solusi: '',
                                                   image: AssetImage(
                                                       "assets/icon/buahApel.png"),
                                                 )));
