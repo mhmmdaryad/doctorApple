@@ -383,6 +383,54 @@ class _State extends State<MyStatefulWidget>
                                     isThreeLine: true,
                                   ),
                                 ),
+                                Card(
+                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => phDetails(
+                                                title: "ABCDE",
+                                                description:
+                                                "AWJDWHDKADWHK",
+                                                image: AssetImage(
+                                                    "assets/icon/buahApel.png"),
+                                              )));
+                                    },
+                                    leading:
+                                    Image.asset("assets/icon/Hscab.png"),
+                                    title: Text('Bercak Daun'),
+                                    subtitle: Text(
+                                        'Marssonina coronaria',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic)),
+                                    isThreeLine: true,
+                                  ),
+                                ),
+                                Card(
+                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => phDetails(
+                                                title: "ABCDE",
+                                                description:
+                                                "AWJDWHDKADWHK",
+                                                image: AssetImage(
+                                                    "assets/icon/buahApel.png"),
+                                              )));
+                                    },
+                                    leading:
+                                    Image.asset("assets/icon/Hscab.png"),
+                                    title: Text('Busuk Akar'),
+                                    subtitle: Text(
+                                        'Armilliaria Melea',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic)),
+                                    isThreeLine: true,
+                                  ),
+                                ),
                               ],
                             ),
                           ),

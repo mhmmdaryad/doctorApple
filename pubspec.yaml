@@ -53,6 +53,10 @@ flutter:
    - assets/image/back.png
    - assets/image/buahApel.png
    - assets/image/embuntep.jpg
+   - assets/image/tumap.png
+   - assets/image/logoC.png
+   - assets/image/logoB.png
+   - assets/image/caption.png
    - assets/icon/Hscab.png
    - assets/icon/Hbitrot.png
    - assets/icon/Hbusap.png
