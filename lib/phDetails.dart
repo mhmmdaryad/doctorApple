@@ -11,7 +11,8 @@ class phDetails extends StatelessWidget {
       String subtitle,
       @required description,
       @required ImageProvider image,
-      @required String solusi }) {
+      @required String solusi,
+      @required String Penyebab}) {
     this.title = title;
     this.subtitle = subtitle;
     this.description = description;

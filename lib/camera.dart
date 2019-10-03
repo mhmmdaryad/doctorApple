@@ -1,11 +1,36 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:core';
+import 'dart:core' as prefix0;
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/phDetails.dart';
 import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
-import 'phResult.dart';
+import 'package:requests/requests.dart';
+
+String responseData;
+class Network {
+  final String url;
+  Network(this.url);
+  Future getData() async {
+    print('Calling uri: $url');
+    String response = await Requests.get(url);
+    responseData = response;
+    return response;
+  }
+  
+  Future postData({body}) async {
+    print("Postin Data: $url");
+    String response = await Requests.post(url, body: body);
+    responseData = response;
+    return response;
+  }
+}
+
 
 Future<void> main() async {
   // Obtain a list of the available cameras on the device.
@@ -16,21 +41,17 @@ Future<void> main() async {
 
   runApp(
     MaterialApp(
-
-      theme: ThemeData.dark(),
-      home: TakePictureScreen(
-        // Pass the appropriate camera to the TakePictureScreen widget.
-        camera: firstCamera,
-      ),
-        debugShowCheckedModeBanner: false
-    ),
+        home: TakePictureScreen(
+          // Pass the appropriate camera to the TakePictureScreen widget.
+          camera: firstCamera,
+        ),
+        debugShowCheckedModeBanner: false),
   );
 }
 
 // A screen that allows users to take a picture using a given camera.
 class TakePictureScreen extends StatefulWidget {
   final CameraDescription camera;
-
   const TakePictureScreen({
     Key key,
     @required this.camera,
@@ -44,9 +65,13 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   CameraController _controller;
   Future<void> _initializeControllerFuture;
 
+  var temp;
+
   @override
   void initState() {
     super.initState();
+
+
     // To display the current output from the Camera,
     // create a CameraController.
     _controller = CameraController(
@@ -99,11 +124,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                   RaisedButton(
                     color: Colors.transparent,
                     padding: EdgeInsets.only(
-                      top: 15,
-                      left: 50,
-                      right: 50,
-                      bottom:15
-                    ),
+                        top: 15, left: 50, right: 50, bottom: 15),
                     child: Icon(Icons.camera),
                     onPressed: () async {
                       try {
@@ -121,12 +142,35 @@ class TakePictureScreenState extends State<TakePictureScreen> {
 
                         // Attempt to take a picture and log where it's been saved.
                         await _controller.takePicture(path);
+                        await Network("https://api.doctorapple.site/ph").postData(body: base64Encode(File(path).readAsBytesSync()));
+                        print(responseData);
+
+                        Map<String, dynamic> myJson = jsonDecode(responseData);
+                        String q = myJson['id'];
+
+                        await Network("https://api.doctorapple.site/ph/" + q).getData();
+
+                        myJson = jsonDecode(responseData);
+
+                        String title = myJson['title'];
+                        String description = myJson['description'];
+                        String image = myJson['image'];
+                        String solusi = myJson['solusi'];
+                        String penyebab = myJson['penyebab'];
+
 
                         // If the picture was taken, display it on a new screen.
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => phResult(imagePath : path),
+                            builder: (context) => phDetails(
+                                title: title,
+                                description: description,
+                                image: MemoryImage(image as Uint8List),
+                                solusi: solusi,
+                                Penyebab: penyebab),
+
+//                          phDetails(title: null, description: null, image: null, solusi: null, Penyebab: null)
                           ),
                         );
                       } catch (e) {
