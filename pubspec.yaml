@@ -57,11 +57,22 @@ flutter:
    - assets/image/logoC.png
    - assets/image/logoB.png
    - assets/image/caption.png
+   - assets/image/pupuk.png
    - assets/icon/Hscab.png
    - assets/icon/Hbitrot.png
    - assets/icon/Hbusap.png
    - assets/icon/Hcedar.png
    - assets/icon/Hemtep.png
+   - assets/icon/Hberda.png
+   - assets/icon/Hbusar.png
+   - assets/icon/Hblarot.png
+   - assets/icon/Hkekel.png
+   - assets/icon/Hkuda.png
+   - assets/icon/Hlabu.png
+   - assets/icon/Hlarbu.png
+   - assets/icon/Hplum.png
+   - assets/icon/Huda.png
+   - assets/icon/google.png
    - assets/icon/apelclip.png
    - assets/icon/hujan.png
    - assets/icon/ketinggian.png

@@ -14,7 +14,7 @@ class phResult extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Detail Penyakit"),
+        title: Text("Konfirmasi gambar"),
         leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -27,9 +27,14 @@ class phResult extends StatelessWidget {
           children: <Widget>[
             Container(
               alignment: Alignment.center,
-              height: 280,
+              height: 500,
               child: Image.file(File(this.imagePath)),
             ),
+Container(
+  child: InkWell(
+
+  ),
+),
           ],
         ),
       ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'camera.dart';
 import 'phDetails.dart';
 import 'x.dart';
+import 'calculator.dart';
 
 class MyStatefulWidget extends StatefulWidget {
   @override
@@ -11,18 +12,18 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _State extends State<MyStatefulWidget>
     with SingleTickerProviderStateMixin {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
   static TabController _tabController;
   static FocusNode _focusNode;
   List<Widget> _widgetOption;
 
   @override
   void initState() {
-    // TODO: implement initState
+
     super.initState();
     _focusNode = FocusNode();
     _tabController = TabController(length: 2, vsync: this);
-    _widgetOption = <Widget>[_beranda(), _penyakitSolusi(), _tentangApel()];
+    _widgetOption = <Widget>[_beranda(context), _penyakitSolusi(context), _tentangApel(context)];
   }
 
   @override
@@ -72,16 +73,17 @@ class _State extends State<MyStatefulWidget>
     );
   }
 
-  Widget _beranda() {
+  Widget _beranda(BuildContext context) {
     return Container(
       child: Stack(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 22.0),
-            child: new Image.asset('assets/image/back.png'),
-            height: 800,
-            width: 600,
-            color: Colors.white,
+//            padding: EdgeInsets.only(top: 130,) ,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/image/back.png'),
+                    fit: BoxFit.fill)),
+            height: 700,
           ),
           Container(
             child: Padding(
@@ -90,17 +92,14 @@ class _State extends State<MyStatefulWidget>
             ),
           ),
           Container(
-            child: Padding(
-              padding: EdgeInsets.only(top: 40, left: 20),
-              child: Text(
-                'DOCTOR\nAPPLE',
-                style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+//            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.only(left: 20.0, right: 60.0, top: 20.0),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage('assets/image/logoB.png'),
+            )),
+            height: 120,
           ),
           Container(
             padding: EdgeInsets.only(top: 400, left: 20, right: 20),
@@ -109,23 +108,27 @@ class _State extends State<MyStatefulWidget>
               children: <Widget>[
                 Container(
                   child: Card(
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: 20,
+                    child: InkWell(
+                      splashColor: Colors.blue.withAlpha(30),
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MyCustomForm())),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.only(
+                              top: 20,
+                            ),
+                            child: Image.asset('assets/icon/kalkulator.png'),
                           ),
-                          child: Image.asset('assets/icon/kalkulator.png'),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: 15,
-                          ),
-                          child: Text('Kalkulator Pupuk',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          height: 30,
-                        )
-                      ],
+                          Container(
+                            padding: EdgeInsets.only(
+                              top: 15,
+                            ),
+                            child: Text('Kalkulator Pupuk',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            height: 30,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   height: 150,
@@ -166,9 +169,8 @@ class _State extends State<MyStatefulWidget>
     );
   }
 
-  Widget _penyakitSolusi() {
+  Widget _penyakitSolusi(BuildContext context) {
     _focusNode = FocusNode();
-
     return Container(
       child: Stack(
         children: <Widget>[
@@ -330,7 +332,7 @@ class _State extends State<MyStatefulWidget>
                                         Image.asset("assets/icon/Hcedar.png"),
                                     title: Text('Karat Apel'),
                                     subtitle: Text(
-                                        'Gymnosporangium juniperivirginianae',
+                                        'Gymnosporangium juniperi-virginianae',
                                         style: TextStyle(
                                             fontStyle: FontStyle.italic)),
                                     isThreeLine: true,
@@ -350,7 +352,8 @@ class _State extends State<MyStatefulWidget>
                                                         "assets/icon/buahApel.png"),
                                                   )));
                                     },
-                                    leading: FlutterLogo(size: 60.0),
+                                    leading:
+                                        Image.asset("assets/icon/Hblarot.png"),
                                     title: Text('Black rot'),
                                     subtitle: Text(
                                         'Fungus: Botryosphaeriaobtusa',
@@ -390,18 +393,17 @@ class _State extends State<MyStatefulWidget>
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) => phDetails(
-                                                title: "ABCDE",
-                                                description:
-                                                "AWJDWHDKADWHK",
-                                                image: AssetImage(
-                                                    "assets/icon/buahApel.png"),
-                                              )));
+                                                    title: "ABCDE",
+                                                    description:
+                                                        "AWJDWHDKADWHK",
+                                                    image: AssetImage(
+                                                        "assets/icon/buahApel.png"),
+                                                  )));
                                     },
                                     leading:
-                                    Image.asset("assets/icon/Hscab.png"),
+                                        Image.asset("assets/icon/Hberda.png"),
                                     title: Text('Bercak Daun'),
-                                    subtitle: Text(
-                                        'Marssonina coronaria',
+                                    subtitle: Text('Marssonina coronaria',
                                         style: TextStyle(
                                             fontStyle: FontStyle.italic)),
                                     isThreeLine: true,
@@ -414,18 +416,17 @@ class _State extends State<MyStatefulWidget>
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) => phDetails(
-                                                title: "ABCDE",
-                                                description:
-                                                "AWJDWHDKADWHK",
-                                                image: AssetImage(
-                                                    "assets/icon/buahApel.png"),
-                                              )));
+                                                    title: "ABCDE",
+                                                    description:
+                                                        "AWJDWHDKADWHK",
+                                                    image: AssetImage(
+                                                        "assets/icon/buahApel.png"),
+                                                  )));
                                     },
                                     leading:
-                                    Image.asset("assets/icon/Hscab.png"),
+                                        Image.asset("assets/icon/Hbusar.png"),
                                     title: Text('Busuk Akar'),
-                                    subtitle: Text(
-                                        'Armilliaria Melea',
+                                    subtitle: Text('Armilliaria Melea',
                                         style: TextStyle(
                                             fontStyle: FontStyle.italic)),
                                     isThreeLine: true,
@@ -449,9 +450,11 @@ class _State extends State<MyStatefulWidget>
                                                       "assets/icon/buahApel.png"),
                                                 )));
                                   },
-                                  leading: FlutterLogo(size: 60.0),
+                                  leading: Image.asset("assets/icon/Hkuda.png"),
                                   title: Text('Kutu Daun Hijau'),
-                                  subtitle: Text('Sub-title'),
+                                  subtitle: Text('Aphis Pomi Geer',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic)),
                                   isThreeLine: true,
                                 ),
                               ),
@@ -468,66 +471,95 @@ class _State extends State<MyStatefulWidget>
                                                       "assets/icon/buahApel.png"),
                                                 )));
                                   },
-                                  leading: FlutterLogo(size: 60.0),
-                                  title: Text('Tungau/Spider Mite/Cabuk Merah'),
-                                  subtitle: Text('Sub-title'),
-                                  isThreeLine: true,
-                                ),
-                              ),
-                              Card(
-                                child: ListTile(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => phDetails(
-                                                  title: "ABCDE",
-                                                  description: "AWJDWHDKADWHK",
-                                                  image: AssetImage(
-                                                      "assets/icon/buahApel.png"),
-                                                )));
-                                  },
-                                  leading: FlutterLogo(size: 60.0),
-                                  title: Text('Ulat Daun'),
-                                  subtitle: Text('Sub-title'),
-                                  isThreeLine: true,
-                                ),
-                              ),
-                              Card(
-                                child: ListTile(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => phDetails(
-                                                  title: "ABCDE",
-                                                  description: "AWJDWHDKADWHK",
-                                                  image: AssetImage(
-                                                      "assets/icon/buahApel.png"),
-                                                )));
-                                  },
-                                  leading: FlutterLogo(size: 60.0),
-                                  title: Text('Serangga Penghisap Daun'),
-                                  subtitle: Text('Sub-title'),
-                                  isThreeLine: true,
-                                ),
-                              ),
-                              Card(
-                                child: ListTile(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => phDetails(
-                                                  title: "ABCDE",
-                                                  description: "AWJDWHDKADWHK",
-                                                  image: AssetImage(
-                                                      "assets/icon/buahApel.png"),
-                                                )));
-                                  },
-                                  leading: FlutterLogo(size: 60.0),
+                                  leading: Image.asset("assets/icon/Hlabu.png"),
                                   title: Text('Lalat Buah'),
-                                  subtitle: Text('Sub-title'),
+                                  subtitle: Text('Rhagoletis Pomonella ',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic)),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => phDetails(
+                                                  title: "ABCDE",
+                                                  description: "AWJDWHDKADWHK",
+                                                  image: AssetImage(
+                                                      "assets/icon/buahApel.png"),
+                                                )));
+                                  },
+                                  leading:
+                                      Image.asset("assets/icon/Hkekel.png"),
+                                  title: Text('Kelelawar'),
+                                  subtitle: Text(''),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => phDetails(
+                                                  title: "ABCDE",
+                                                  description: "AWJDWHDKADWHK",
+                                                  image: AssetImage(
+                                                      "assets/icon/buahApel.png"),
+                                                )));
+                                  },
+                                  leading:
+                                      Image.asset("assets/icon/Hlarbu.png"),
+                                  title: Text('Ngengat Codling'),
+                                  subtitle: Text('Cydia Pomonella',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic)),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => phDetails(
+                                                  title: "ABCDE",
+                                                  description: "AWJDWHDKADWHK",
+                                                  image: AssetImage(
+                                                      "assets/icon/buahApel.png"),
+                                                )));
+                                  },
+                                  leading: Image.asset("assets/icon/Hplum.png"),
+                                  title: Text('Plum Curculio (kumbang)'),
+                                  subtitle: Text('Conotrochelus Nenuphar',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic)),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => phDetails(
+                                                  title: "ABCDE",
+                                                  description: "AWJDWHDKADWHK",
+                                                  image: AssetImage(
+                                                      "assets/icon/buahApel.png"),
+                                                )));
+                                  },
+                                  leading: Image.asset("assets/icon/Huda.png"),
+                                  title: Text('Ulat Daun'),
+                                  subtitle: Text('Spodoptera Litura',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic)),
                                   isThreeLine: true,
                                 ),
                               ),
@@ -546,7 +578,7 @@ class _State extends State<MyStatefulWidget>
     );
   }
 
-  Widget _tentangApel() {
+  Widget _tentangApel(BuildContext context) {
     return Container(
       child: ListView(
         children: <Widget>[
@@ -770,6 +802,17 @@ class _State extends State<MyStatefulWidget>
       ),
     );
   }
+  gotoCalculate() {
+    //controller_0To1.forward(from: 0.0);
+    _controller.animateToPage(
+      0,
+      duration: Duration(milliseconds: 800),
+      curve: Curves.bounceOut,
+    );
+  }
+
+  PageController _controller =
+      new PageController(initialPage: 1, viewportFraction: 1.0);
 
   Future<String> loadAsset(BuildContext context) async {
     return await DefaultAssetBundle.of(context)

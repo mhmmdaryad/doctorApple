@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/calculator.dart';
 import 'dashboard.dart';
 import 'login.dart';
 
@@ -11,6 +12,6 @@ class DoctorApple extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Doctor Apple",
-        debugShowCheckedModeBanner: false, home: LoginScreen3());
+        debugShowCheckedModeBanner: false, home: MyStatefulWidget());
   }
 }

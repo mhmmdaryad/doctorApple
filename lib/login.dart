@@ -252,7 +252,7 @@ class _LoginScreen3State extends State<LoginScreen3>
       child: new Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top : 70.0,bottom: 30),
+            padding: EdgeInsets.only(top : 50.0,bottom: 25),
             child: Center(
               child: Icon(
                 Icons.person,
@@ -465,7 +465,7 @@ class _LoginScreen3State extends State<LoginScreen3>
                             shape: new RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(30.0),
                             ),
-                            color: Color(0Xffdb3236),
+                            color: Colors.blueAccent,
                             onPressed: () => {},
                             child: new Container(
                               child: new Row(
@@ -475,19 +475,15 @@ class _LoginScreen3State extends State<LoginScreen3>
                                     child: new FlatButton(
                                       onPressed: ()=>{},
                                       padding: EdgeInsets.only(
-                                        top: 20.0,
-                                        bottom: 20.0,
+                                        top: 5.0,
+                                        bottom: 5.0,
                                       ),
                                       child: new Row(
                                         mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                         children: <Widget>[
-                                          Icon(
-                                            const IconData(0xea88,
-                                                fontFamily: 'icomoon'),
-                                            color: Colors.white,
-                                            size: 15.0,
-                                          ),
+                                          Image.asset("assets/icon/google.png",
+                                          height: 50,),
                                           Text(
                                             "GOOGLE",
                                             textAlign: TextAlign.center,
@@ -533,7 +529,7 @@ class _LoginScreen3State extends State<LoginScreen3>
       child: new Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 70.0,bottom: 30,),
+            padding: EdgeInsets.only(top: 50.0,bottom: 25,),
             child: Center(
               child: Icon(
                 Icons.person_add,
@@ -717,7 +713,7 @@ class _LoginScreen3State extends State<LoginScreen3>
           ),
           new Container(
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 30.0, right: 30.0, top: 50.0),
+            margin: const EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
             alignment: Alignment.center,
             child: new Row(
               children: <Widget>[
