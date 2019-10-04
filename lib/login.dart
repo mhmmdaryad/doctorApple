@@ -1,9 +1,39 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'dashboard.dart';
 
-String JSON = "{\"username\":\"a\",\"password\":\"awda\"}";
+final FirebaseAuth _auth = FirebaseAuth.instance;
+final GoogleSignIn googleSignIn = GoogleSignIn();
 
+Future<String> signInWithGoogle() async {
+  final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+  final GoogleSignInAuthentication googleSignInAuthentication =
+  await googleSignInAccount.authentication;
+
+  final AuthCredential credential = GoogleAuthProvider.getCredential(
+    accessToken: googleSignInAuthentication.accessToken,
+    idToken: googleSignInAuthentication.idToken,
+  );
+
+  final FirebaseUser user = (await _auth.signInWithCredential(credential)) as FirebaseUser;
+
+  assert(!user.isAnonymous);
+  assert(await user.getIdToken() != null);
+
+  final FirebaseUser currentUser = await _auth.currentUser();
+  assert(user.uid == currentUser.uid);
+
+  return 'signInWithGoogle succeeded: $user';
+}
+
+void signOutGoogle() async{
+  await googleSignIn.signOut();
+
+  print("User Sign Out");
+}
 
 class LoginScreen3 extends StatefulWidget {
   @override
@@ -12,8 +42,6 @@ class LoginScreen3 extends StatefulWidget {
 
 class _LoginScreen3State extends State<LoginScreen3>
     with TickerProviderStateMixin {
-
-  Map<String, dynamic> JSONMap = jsonDecode(JSON);
 
 
   @override
@@ -115,7 +143,13 @@ class _LoginScreen3State extends State<LoginScreen3>
                                 children: <Widget>[
                                   new Expanded(
                                     child: new FlatButton(
-                                      onPressed: ()=>{},
+                                      onPressed: () {
+                                        signInWithGoogle().whenComplete(() {
+                                          Navigator.push(context, MaterialPageRoute(
+                                            builder: (context) => MyStatefulWidget()
+                                          ));
+                                        });
+                                      },
                                       padding: EdgeInsets.only(
                                         top: 5.0,
                                         bottom: 5.0,
