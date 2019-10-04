@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "107915199278",
+    "firebase_url": "https://doctorapple-4ea94.firebaseio.com",
+    "project_id": "doctorapple-4ea94",
+    "storage_bucket": "doctorapple-4ea94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107915199278:android:e2103f5da0dc95fbaa70bf",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107915199278-82qrq60ts8ni648mp3a665q4oiknpint.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_app",
+            "certificate_hash": "5d12930b2eb11bc81adb748f969028f5b98bd14a"
+          }
+        },
+        {
+          "client_id": "107915199278-i5vjr18fp0vgascp4kgvn3pp6agtpjbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTowPFFjAK3zCtqrYO8N27IMvaJ7hcBBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107915199278-i5vjr18fp0vgascp4kgvn3pp6agtpjbv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
