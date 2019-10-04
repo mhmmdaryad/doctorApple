@@ -144,11 +144,9 @@ class _LoginScreen3State extends State<LoginScreen3>
                                   new Expanded(
                                     child: new FlatButton(
                                       onPressed: () {
-                                        signInWithGoogle().whenComplete(() {
                                           Navigator.push(context, MaterialPageRoute(
                                             builder: (context) => MyStatefulWidget()
                                           ));
-                                        });
                                       },
                                       padding: EdgeInsets.only(
                                         top: 5.0,
