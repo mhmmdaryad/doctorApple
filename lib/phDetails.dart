@@ -172,6 +172,7 @@ class phDetails extends StatelessWidget {
                   ),
                 ),
               ),
+
               Container(
                 child: Padding(
                   padding: EdgeInsets.only(left: 20, right: 20, top: 5,bottom: 50),
